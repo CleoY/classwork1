@@ -83,7 +83,6 @@ int startGame(){
         retypeInput:
         scanf("%s", userInput);
         guess = atoi(userInput);
-        //scanf("%d", &guess);
     }
     
     printf("Congratulations, you guessed correctly! You will now return to the main menu.\n\n");

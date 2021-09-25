@@ -17,8 +17,9 @@
 
 
     NUMBER GUESSING GAME
-    Global int variable, randoNum, for holding randomly generated number
+    Global int variable, answer, for holding randomly generated number
     Global int variable, maxRandoNum, for holding max guessable number
+    Global int variable, menuOption to track user's choice at menu
 
     1) printf different menu options
     2) Accept user input (1,2,3)
@@ -30,8 +31,9 @@
         Only ONCE per game: Generate a number between 1 and number from maxNum
         If input = too low: Print message about low guess
                  = too high: Print message about high guess
-                 = q: quit game and return to menu (do NOT return menu)
                  = correct: print win message and return to menu
+                 = q: quit game and return to menu (do NOT return menu)
+                 = invalid: command user to retype guess
     
 
     For saving max number request on save_user_max_number branch:

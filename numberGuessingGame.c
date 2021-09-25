@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-int maxRandoNum = 10; //default value of max guessable number
+int maxRandoNum; //maxRandoNum depends on number stored in maxNum.txt
 int answer;
 
 int menuOption;
@@ -15,7 +15,12 @@ int generateRandomNumber();
 int changeMaxNumber();
 
 
+FILE *maxNumFilePointer;
+
 int main(){
+    maxNumFilePointer = fopen("maxNum.txt", "r");
+    fscanf(maxNumFilePointer, "%d", &maxRandoNum);
+
     printf("Welcome to the Number Guessing Game!\n");
     displayMenu();
     
@@ -109,6 +114,12 @@ int changeMaxNumber(){
         printf("Error: not a valid input. New maximum number can not be negative or greater than %d\n", RAND_MAX);
         scanf("%d", &maxRandoNum);
     }
+
+    //Add functionality to remember user's preferred maximum guessable number
+    maxNumFilePointer = fopen("maxNum.txt","w+");
+    fprintf(maxNumFilePointer,"%d",maxRandoNum);
+    fclose(maxNumFilePointer);
+
     menuOption = 0;
     displayMenu();
     return 0;
